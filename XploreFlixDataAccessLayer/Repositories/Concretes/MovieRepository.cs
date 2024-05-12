@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.Security.Cryptography;
-using XploreFlix.Models.ViewModels;
 using XploreFlixDataAccessLayer.Contexts;
 using XploreFlixDataAccessLayer.Repositories.Abstracts;
+using XploreFlixDataAccessLayer.ViewModels;
 using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlixDataAccessLayer.Repositories.Concretes;

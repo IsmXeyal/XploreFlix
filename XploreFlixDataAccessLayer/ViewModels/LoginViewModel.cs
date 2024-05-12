@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace XploreFlix.Models.ViewModels;
+namespace XploreFlixDataAccessLayer.ViewModels;
 
 public class LoginViewModel
 {

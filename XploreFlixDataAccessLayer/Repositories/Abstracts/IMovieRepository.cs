@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using XploreFlix.Models.ViewModels;
+using XploreFlixDataAccessLayer.ViewModels;
 using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlixDataAccessLayer.Repositories.Abstracts;

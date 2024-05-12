@@ -1,6 +1,6 @@
 ﻿using XploreFlixDomainLayer.Entities;
 
-namespace XploreFlix.Models.ViewModels;
+namespace XploreFlixDataAccessLayer.ViewModels;
 
 public class MovieDetailsViewModel
 {

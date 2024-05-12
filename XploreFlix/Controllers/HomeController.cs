@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using XploreFlix.Models;
-using XploreFlix.Models.ViewModels;
 using XploreFlixDataAccessLayer.Repositories.Abstracts;
+using XploreFlixDataAccessLayer.ViewModels;
 using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlix.Controllers;
