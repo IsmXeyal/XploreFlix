@@ -39,6 +39,7 @@ public class ActorRepository : IActorRepository
 
 	public async Task<int> InsertAsync(Actor newActor, List<IFormFile> Image)
 	{
+		// There is problem here
 		foreach (var item in Image)
 		{
 			if (item.Length > 0)

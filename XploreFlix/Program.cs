@@ -70,9 +70,9 @@ public class Program
 			name: "default",
 			pattern: "{controller=Home}/{action=Index}/{id?}");
 
-        //Database Data Initializer
-        //DbIntializer.SeedDB(app);
-        //DbIntializer.CreateUsersAndRolesAsync(app).Wait();
+        // Database Data Initializer
+        DbInitializer.SeedDB(app).Wait();
+        DbInitializer.CreateUsersAndRolesAsync(app).Wait();
 
         app.Run();
 

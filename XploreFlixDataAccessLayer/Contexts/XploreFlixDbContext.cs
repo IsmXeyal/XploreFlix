@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlixDataAccessLayer.Contexts;
 
 #nullable disable
-public class XploreFlixDbContext : DbContext
+public class XploreFlixDbContext : IdentityDbContext
 {
 	public XploreFlixDbContext() { }
 	public XploreFlixDbContext(DbContextOptions options) : base(options) { }

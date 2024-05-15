@@ -91,7 +91,6 @@ public class CinemaController : Controller
     #region Get
     public IActionResult UpdateForm(int id)
     {
-
         Cinema cinema = cinemaRepo.GetById(id);
         return View("CinemaUpdateForm", cinema);
     }

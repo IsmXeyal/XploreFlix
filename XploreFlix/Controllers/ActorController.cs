@@ -70,7 +70,7 @@ public class ActorController : Controller
     {
         if (ModelState.IsValid)
         {
-            Task<int> numOfRowsInsertion = actorRepository.InsertAsync(NewActor, Image);
+            actorRepository.InsertAsync(NewActor, Image);
             return RedirectToAction("AdminActors");
         }
 

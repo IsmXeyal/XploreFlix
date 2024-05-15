@@ -4,13 +4,13 @@ using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlix.Models;
 
-public class DbIntializer
+public class DbInitializer
 {
     public static async Task<byte[]> ImageConverter(string imageName)
     {
         string path = "./wwwroot/images/" + imageName;
         var stream = File.OpenRead(path);
-        var formfile = new FormFile(stream, 0, stream.Length, "image", Path.GetFileName(stream.Name));
+        var formfile = new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name));
         using var _stream = new MemoryStream();
         await formfile.CopyToAsync(_stream);
         return _stream.ToArray();

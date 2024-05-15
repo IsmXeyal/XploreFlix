@@ -9,7 +9,6 @@ namespace XploreFlix.Controllers;
 
 public class AccountController : Controller
 {
-
     private readonly SignInManager<User> signInManager;
     private readonly UserManager<User> userManager;
     private readonly XploreFlixDbContext db;
@@ -33,23 +32,20 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-
-            var user = await userManager.FindByNameAsync(loginVM.UserLogin);
-            user = (user != null) ? user : await userManager.FindByEmailAsync(loginVM.UserLogin);
+            var user = await userManager.FindByNameAsync(loginVM.UserLogin!);
+            user = user ?? await userManager.FindByEmailAsync(loginVM.UserLogin!);
             if (user != null)
             {
-                var passwordCheck = await userManager.CheckPasswordAsync(user, loginVM.Password);
+                var passwordCheck = await userManager.CheckPasswordAsync(user, loginVM.Password!);
                 if (passwordCheck)
                 {
-                    var result = await signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                    var result = await signInManager.PasswordSignInAsync(user, loginVM.Password!, false, false);
                     if (result.Succeeded)
                     {
                         HttpContext.Session.SetString("id", user.Id);
 
-
                         var checkIfAdmin = await userManager.GetRolesAsync(user);
                         if (checkIfAdmin.Contains("Admin"))
-
                             return RedirectToAction("Admin", "Home");
 
                         return RedirectToAction("Index", "Home");
@@ -57,7 +53,7 @@ public class AccountController : Controller
                 }
             }
         }
-        TempData["Error"] = "Wrong Login. Please, try again!";
+        TempData["Error"] = "Incorrect Email or Password. Please, try again!";
         return View(loginVM);
     }
 
