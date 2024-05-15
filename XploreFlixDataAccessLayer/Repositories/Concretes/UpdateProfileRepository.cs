@@ -12,7 +12,7 @@ public class UpdateProfileRepository : IUpdateProfileRepository
 	{
 		this.db = db;
 	}
-	public User GetById(int id)
+	public User GetById(string? id)
 	{
 		var user = db!.Users.FirstOrDefault(x => x.Id == id);
 		return user!;
@@ -33,7 +33,7 @@ public class UpdateProfileRepository : IUpdateProfileRepository
 		return db.SaveChanges();
 	}
 
-	public async Task<int> UpdateAsync(int id, User UpdateUser, List<IFormFile> Image)
+	public async Task<int> UpdateAsync(string? id, User UpdateUser, List<IFormFile> Image)
 	{
 		foreach (var item in Image)
 		{

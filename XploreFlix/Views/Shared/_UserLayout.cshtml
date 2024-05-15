@@ -1,5 +1,13 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using XploreFlixDomainLayer.Entities
 
+@inject UserManager<User> usermanager
+@{
+	User user;
+	if (@User.Identity.IsAuthenticated)
+		user = await usermanager.GetUserAsync(User);
+	else user = null;
+}
 
 <!DOCTYPE html>
 
@@ -29,14 +37,14 @@
 <body>
 	<!--preloading-->
 	<div id="preloader">
-		<a asp-action="index" asp-controller="home"> <img class="logo" src="/images/logo.png" alt="XploreFlix Logo" width="150" height="100"></a>
+		<a asp-action="index" asp-controller="home"> <img class="logo" src="/images/logo1.png" alt="" width="119" height="58"></a>
 		<div id="status">
 			<span></span>
 			<span></span>
 		</div>
 	</div>
 	<!--end of preloading-->
-	
+
 	<!-- BEGIN | Header -->
 	<header class="ht-header">
 		<div class="container">
@@ -51,7 +59,7 @@
 							<span></span>
 						</div>
 					</div>
-					<a asp-action="index" asp-controller="home"><img class="logo" src="/images/logo.png" alt="XploreFlix Logo" width="150" height="100"></a>
+					<a asp-action="index" asp-controller="home"><img class="logo" src="/images/logo1.png" alt="" width="119" height="58"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -87,8 +95,37 @@
 						}
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
-						<li class="loginLink"><a asp-controller="Account" asp-action="Login">LOG In</a></li>
-						<li class="btn signupLink"><a asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
+						@if (User.Identity.IsAuthenticated && user != null)
+						{
+
+							<li>
+								<a asp-action="UpdateUserForm" asp-controller="UpdateProfile" asp-route-id="@user.Id">
+
+									@if (@user.Image == null)
+									{
+
+										<img src="~/images/placeholder.jpg" alt=""
+											 style="width:50px; height:50px; border-radius: 50%; object-fit:cover" />
+									}
+									else
+									{
+										var base64 = Convert.ToBase64String(@user.Image);
+										var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+										<img src="@imgSrc" alt=""
+											 style="width:50px; height:50px; border-radius: 50%; object-fit:cover" />
+									}
+
+								</a>
+							</li>
+							<li class="btn signupLink"><a asp-controller="Account" asp-action="LogOut">LOG Out</a></li>
+						}
+						else
+						{
+							<li class="loginLink"><a asp-controller="Account" asp-action="Login">LOG In</a></li>
+							<li class="btn signupLink"><a asp-controller="Account" asp-action="SignUp">Sign Up</a></li>
+						}
+
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -114,7 +151,7 @@
 		<div class="container">
 			<div class="flex-parent-ft">
 				<div class="flex-child-ft item1">
-					<a asp-action="index" asp-controller="home"><img class="logo" src="/images/logo.png" alt=""></a>
+					<a asp-action="index" asp-controller="home"><img class="logo" src="/images/logo1.png" alt=""></a>
 					<p>
 						5th Avenue st, manhattan<br>
 						New York, NY 10001
@@ -175,5 +212,4 @@
 	@await RenderSectionAsync("Scripts", required: false)
 
 </body>
-
 </html>

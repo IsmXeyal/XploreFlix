@@ -1,8 +1,13 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
+using XploreFlix.Models;
+using XploreFlix.Payment;
 using XploreFlixDataAccessLayer.Contexts;
 using XploreFlixDataAccessLayer.Repositories.Abstracts;
 using XploreFlixDataAccessLayer.Repositories.Concretes;
+using XploreFlixDomainLayer.Entities;
 
 namespace XploreFlix;
 
@@ -19,9 +24,9 @@ public class Program
 			.Build()
 			.GetConnectionString("DefaultConnection");
 
-		builder.Services.AddDbContext<XploreFlixDbContext>(options =>
+		builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+        builder.Services.AddDbContext<XploreFlixDbContext>(options =>
 						options.UseSqlServer(ConStr));
-
 
 		//Added Services_____________________________
 		builder.Services.AddScoped<ICinemaRepository, CinemaRepository>();
@@ -35,7 +40,11 @@ public class Program
 		builder.Services.AddScoped<IMovieOrderRepository, MovieOrderRepository>();
 		builder.Services.AddScoped<IUpdateProfileRepository, UpdateProfileRepository>();
 
-		builder.Services.AddMemoryCache();
+        //___________________________________________
+        //Authentication and Authorization
+
+        builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<XploreFlixDbContext>();
+        builder.Services.AddMemoryCache();
 		builder.Services.AddSession();
 		builder.Services.AddAuthentication(options =>
 		{
@@ -43,30 +52,31 @@ public class Program
 		});
 
 		var app = builder.Build();
-
-		// Configure the HTTP request pipeline.
-		if (!app.Environment.IsDevelopment())
+        StripeConfiguration.ApiKey = "sk_test_51KaLSED25I1FdsuBSpVWATesW9D7o66fKczZ0kPHu1VcwK3NE5BlNwV97iXE2cytRCBxX1bxsyXQwdyNnhmN61bM00AJCInQSA";
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
 		{
 			app.UseExceptionHandler("/Home/Error");
 			// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 			app.UseHsts();
 		}
+        else
+            app.UseExceptionHandler("/Home/Error");
 
-		app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 		app.UseStaticFiles();
-
 		app.UseRouting();
-
 		app.UseSession();
-
 		app.UseAuthentication();
-
 		app.UseAuthorization();
-
 		app.MapControllerRoute(
 			name: "default",
 			pattern: "{controller=Home}/{action=Index}/{id?}");
 
 		app.Run();
-	}
+
+        //Database Data Initializer
+        DbIntializer.SeedDB(app).Wait();
+        DbIntializer.CreateUsersAndRolesAsync(app).Wait();
+    }
 }

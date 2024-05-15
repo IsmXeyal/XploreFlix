@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="slick-multiItemSlider  ">
-				@foreach (var item in Model.Movies)
+				@foreach (var item in Model.Movies!)
 				{
 					<div class="movie-item  col-sm-12">
 						<a class="mv-img" asp-action="Details" asp-controller="Movie" asp-route-id="@item.Id">
@@ -31,7 +31,7 @@
 						</a>
 						<div class="title-in">
 							<div class="cate">
-								<span class="blue"><a>@item.Category.Name</a></span>
+								<span class="blue"><a>@item.Category!.Name</a></span>
 							</div>
 							<h6><a asp-action="Details" asp-controller="Movie" asp-route-id="@item.Id">@item.Name</a></h6>
 
@@ -56,7 +56,7 @@
 						<div id="tab1" class="tab active">
 							<div class="row">
 								<div class="slick-multiItem">
-									@foreach (var item in Model.Categories)
+									@foreach (var item in Model.Categories!)
 									{
 										<div class="slide-it">
 											<div class="movie-item">
@@ -95,7 +95,7 @@
 						<div id="tab22" class="tab active">
 							<div class="row">
 								<div class="slick-multiItem">
-									@foreach (var item in Model.Cinemas)
+									@foreach (var item in Model.Cinemas!)
 									{
 										<div class="slide-it">
 											<div class="movie-item">
@@ -131,7 +131,7 @@
 					</div>
 					<div class="celebrities">
 						<h4 class="sb-title">Actors</h4>
-						@foreach (var item in Model.Actors)
+						@foreach (var item in Model.Actors!)
 						{
 							<div class="celeb-item">
 								<a asp-action="Details" asp-controller="Actor" asp-route-id="@item.Id">
@@ -154,8 +154,6 @@
 							}
 							i++;
 						}
-
-
 						<a asp-action="Index" asp-controller="Actor" class="btn">See all Actors<i class="ion-ios-arrow-right"></i></a>
 					</div>
 				</div>
