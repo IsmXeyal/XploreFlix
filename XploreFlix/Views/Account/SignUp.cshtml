@@ -65,11 +65,10 @@
 		position: relative;
 		width: 440px;
 		max-width: 100%;
-		height: 400px;
+		height: 480px;
 		-webkit-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 		perspective: 800px;
-		margin-top: 60px;
 	}
 
 	.card-3d-wrapper {
@@ -81,7 +80,7 @@
 		transition: all 600ms ease-out;
 	}
 
-	.card-front, .card-back {
+	.card-back {
 		width: 100%;
 		height: 100%;
 		background-color: #2b2e38;
@@ -89,14 +88,6 @@
 		position: absolute;
 		border-radius: 6px;
 		-webkit-transform-style: preserve-3d;
-	}
-
-	.card-back {
-		transform: rotateY(180deg);
-	}
-
-	.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-		transform: rotateY(180deg);
 	}
 
 	.center-wrap {
@@ -173,15 +164,15 @@
 		color: #000000;
 	}
 
-		.btn:hover {
-			background-color: #000000;
-			color: #ffeba7;
-			box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-		}
+	.btn:hover {
+		background-color: #000000;
+		color: #ffeba7;
+		box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+	}
 
 </style>
 
-<hr />
+@* <hr /> *@
 @* <div class="row">
     <div class="col-md-4">
         <form asp-action="SignUp">
@@ -237,7 +228,7 @@
 											</div>
 											<div class="form-group mt-2">
 												<input asp-for="UserName" class="form-style" placeholder="UserName">
-												<i class="input-icon uil uil-at"></i>
+												<i class="input-icon uil uil-user"></i>
 												<span asp-validation-for="UserName" class="text-danger"></span>
 											</div>
 											<div class="form-group mt-2">
@@ -258,6 +249,10 @@
 											<div class="group">
 												<input type="submit" class="btn mt-4" value="Sign Up">
 											</div>
+
+											<div style="margin-top: 5px;">
+												<a style="color: white;" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+											</div>
 										}
 									</div>
 								</div>
@@ -268,12 +263,6 @@
 			</div>
 		</div>
 	</div>
-	<div>
-		<a asp-controller="Home" asp-action="Index">Back to Home Page</a>
-	</div>
-</div>
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to Home Page</a>
 </div>
 
 @section Scripts {
