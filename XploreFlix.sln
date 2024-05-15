@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XploreFlix", "XploreFlix\XploreFlix.csproj", "{6FEB3E1E-76EE-498F-8C70-B3B8BB8B0C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XploreFlixDomainLayer", "XploreFlixDomainLayer\XploreFlixDomainLayer.csproj", "{B9C13903-2FEF-485F-BE78-88D09343B1BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XploreFlixDomainLayer", "XploreFlixDomainLayer\XploreFlixDomainLayer.csproj", "{B9C13903-2FEF-485F-BE78-88D09343B1BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XploreFlixDataAccessLayer", "XploreFlixDataAccessLayer\XploreFlixDataAccessLayer.csproj", "{85438AC4-FB3C-40C8-8D52-15745F38C3F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XploreFlixDataAccessLayer", "XploreFlixDataAccessLayer\XploreFlixDataAccessLayer.csproj", "{85438AC4-FB3C-40C8-8D52-15745F38C3F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

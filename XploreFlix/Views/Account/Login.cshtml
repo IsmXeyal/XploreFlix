@@ -1,6 +1,5 @@
-﻿@using XploreFlixDomainLayer.Entities;
-
-@model User
+﻿@using XploreFlixDataAccessLayer.ViewModels;
+@model LoginViewModel
 
 @{
     ViewData["Title"] = "Login";
@@ -36,7 +35,7 @@
     </div>
 }
 
-@* <h1>Login</h1>
+<h1>Login</h1>
 
 <hr />
 <div class="row">
@@ -67,11 +66,10 @@
 
 <div>
     <a asp-controller="Home" asp-action="Index">Back to Home Page</a>
-</div> *@
+</div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-

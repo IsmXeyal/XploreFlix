@@ -399,7 +399,7 @@ public class DbIntializer
 
             //Users
             var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
-            string adminUserEmail = "admin@emovies.com";
+            string adminUserEmail = "admin@xf.com";
 
             var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
             if (adminUser == null)
@@ -413,6 +413,22 @@ public class DbIntializer
                 };
                 await userManager.CreateAsync(newAdminUser, "Xeyal.2003");
                 await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+            }
+
+            string appUserEmail = "user@xf.com";
+
+            var appUser = await userManager.FindByEmailAsync(appUserEmail);
+            if (appUser == null)
+            {
+                var newAppUser = new User()
+                {
+                    FullName = "App User",
+                    UserName = "User",
+                    Email = appUserEmail,
+                    EmailConfirmed = true
+                };
+                await userManager.CreateAsync(newAppUser, "Xeyal.123");
+                await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
             }
         }
     }

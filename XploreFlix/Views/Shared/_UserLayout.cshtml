@@ -3,8 +3,8 @@
 
 @inject UserManager<User> usermanager
 @{
-	User user;
-	if (@User.Identity.IsAuthenticated)
+	User? user;
+	if (@User.Identity!.IsAuthenticated)
 		user = await usermanager.GetUserAsync(User);
 	else user = null;
 }
@@ -26,7 +26,7 @@
 	<!-- Mobile specific meta -->
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone-no">
-	<link rel="icon" type="image/x-icon" href="~/images/icon.jpg">
+	<link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
 	<!-- CSS files -->
 	<link rel="stylesheet" href="~/css/plugins.css">

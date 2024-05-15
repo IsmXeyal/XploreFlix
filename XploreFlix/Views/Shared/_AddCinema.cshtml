@@ -1,0 +1,10 @@
+﻿@using XploreFlixDataAccessLayer.ViewModels;
+@model MovieViewModel
+
+@foreach (var cinema in ViewBag.Cinemas)
+{
+    <div class="row mt-4">
+        <label class="col-3" for="@cinema">@cinema</label>
+        <input type="number" asp-for="Quantities" id="@cinema" class="form-control col-3" />
+    </div>
+}

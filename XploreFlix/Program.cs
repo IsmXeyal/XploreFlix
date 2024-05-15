@@ -52,31 +52,29 @@ public class Program
 		});
 
 		var app = builder.Build();
-        StripeConfiguration.ApiKey = "sk_test_51KaLSED25I1FdsuBSpVWATesW9D7o66fKczZ0kPHu1VcwK3NE5BlNwV97iXE2cytRCBxX1bxsyXQwdyNnhmN61bM00AJCInQSA";
+
+        StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
-		{
-			app.UseExceptionHandler("/Home/Error");
-			// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-			app.UseHsts();
-		}
+            app.UseDeveloperExceptionPage();
         else
             app.UseExceptionHandler("/Home/Error");
 
-        app.UseHttpsRedirection();
-		app.UseStaticFiles();
-		app.UseRouting();
-		app.UseSession();
-		app.UseAuthentication();
-		app.UseAuthorization();
-		app.MapControllerRoute(
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.UseSession();
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.MapControllerRoute(
 			name: "default",
 			pattern: "{controller=Home}/{action=Index}/{id?}");
 
-		app.Run();
-
         //Database Data Initializer
-        DbIntializer.SeedDB(app).Wait();
-        DbIntializer.CreateUsersAndRolesAsync(app).Wait();
+        //DbIntializer.SeedDB(app);
+        //DbIntializer.CreateUsersAndRolesAsync(app).Wait();
+
+        app.Run();
+
     }
 }
