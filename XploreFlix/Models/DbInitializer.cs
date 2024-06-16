@@ -29,7 +29,7 @@ public class DbInitializer
             {
                 db.Categories.AddRange(new List<Category>()
                 {
-                    new Category() { Name = "Comdey", Image= await ImageConverter("Comedy.jpg")},
+                    new Category() { Name = "Comedy", Image= await ImageConverter("Comedy.jpg")},
                     new Category() { Name = "Romance", Image= await ImageConverter("Romance.jpg")},
                     new Category() { Name = "Drama", Image= await ImageConverter("Drama.jpg")},
                     new Category() { Name = "Action", Image= await ImageConverter("Action.jpg")},
@@ -136,15 +136,15 @@ public class DbInitializer
                 var movie1 = new Movie()
                 {
                     Id = guid1,
-                    Name = "Django Unchained",
+                    Name = "Avatar",
                     StartDate = new DateTime(2022, 1, 30),
                     EndDate = new DateTime(2022, 6, 14),
                     Rate = 8,
-                    Trailer = "https://www.youtube.com/watch?v=eUdM9vrCbow",
+                    Trailer = "https://www.youtube.com/watch?v=d9MyW72ELq0",
                     Price = 120,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 2,
-                    Cat_Id = 6,
+                    Cat_Id = 4,
                     Image = await ImageConverter("movie-1.jpg"),
                 };
                 db.Movies.Add(movie1);
@@ -177,15 +177,15 @@ public class DbInitializer
                 var movie2 = new Movie()
                 {
                     Id = guid2,
-                    Name = "Tyson's Run (2022)",
+                    Name = "Thor",
                     StartDate = new DateTime(2022, 3, 30),
                     EndDate = new DateTime(2022, 8, 14),
                     Rate = 7,
-                    Trailer = "https://www.youtube.com/watch?v=hEqSj5esw7k",
+                    Trailer = "https://www.youtube.com/watch?v=JOddp-nlNvQ",
                     Price = 150,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 1,
-                    Cat_Id = 5,
+                    Cat_Id = 8,
                     Image = await ImageConverter("movie-2.jpg"),
                 };
                 db.Movies.Add(movie2);
@@ -218,15 +218,15 @@ public class DbInitializer
                 var movie3 = new Movie()
                 {
                     Id = guid3,
-                    Name = "Offseason (2021)",
+                    Name = "Avengers Infinity War",
                     StartDate = new DateTime(2021, 3, 30),
                     EndDate = new DateTime(2022, 9, 14),
                     Rate = 6,
-                    Trailer = "https://www.youtube.com/watch?v=hEqSj5esw7k",
+                    Trailer = "https://www.youtube.com/watch?v=6ZfuNTqbHE8",
                     Price = 150,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 2,
-                    Cat_Id = 5,
+                    Cat_Id = 4,
                     Image = await ImageConverter("movie-3.jpg"),
                 };
                 db.Movies.Add(movie3);
@@ -259,11 +259,11 @@ public class DbInitializer
                 var movie4 = new Movie()
                 {
                     Id = guid4,
-                    Name = "Jujutsu Kaisen 0: The Movie (2021)",
+                    Name = "Marrowbone",
                     StartDate = new DateTime(2022, 5, 30),
                     EndDate = new DateTime(2022, 10, 14),
                     Rate = 7,
-                    Trailer = "https://www.youtube.com/watch?v=eGSL-l95VXw",
+                    Trailer = "https://www.youtube.com/watch?v=HsiSsgXXFVs",
                     Price = 170,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 2,
@@ -301,16 +301,16 @@ public class DbInitializer
                 var movie5 = new Movie()
                 {
                     Id = guid5,
-                    Name = "Dumb and Dumber (1994)",
+                    Name = "Evil Dead Rise",
                     StartDate = new DateTime(2022, 5, 30),
                     EndDate = new DateTime(2023, 10, 14),
                     Rate = 8,
-                    Trailer = "https://www.youtube.com/watch?v=l13yPhimE3o",
+                    Trailer = "https://www.youtube.com/watch?v=smTK_AeAPHs&t=83s",
                     Price = 190,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 2,
-                    Cat_Id = 1,
-                    Image = await ImageConverter("Comedy.jpg"),
+                    Cat_Id = 6,
+                    Image = await ImageConverter("Horror.jpg"),
                 };
                 db.Movies.Add(movie5);
                 var actors5 = new List<int> { 1, 4, 3 };

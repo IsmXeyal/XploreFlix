@@ -12,7 +12,7 @@ using XploreFlixDataAccessLayer.Contexts;
 namespace XploreFlixDataAccessLayer.Migrations
 {
     [DbContext(typeof(XploreFlixDbContext))]
-    [Migration("20240515123329_Mig1")]
+    [Migration("20240616105924_Mig1")]
     partial class Mig1
     {
         /// <inheritdoc />
