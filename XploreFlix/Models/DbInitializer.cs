@@ -342,11 +342,11 @@ public class DbInitializer
                 var movie6 = new Movie()
                 {
                     Id = guid6,
-                    Name = "Encanto (2021)",
+                    Name = "Finding Nemo",
                     StartDate = new DateTime(2021, 5, 30),
                     EndDate = new DateTime(2023, 10, 14),
                     Rate = 8,
-                    Trailer = "https://www.youtube.com/watch?v=CaimKeDcudo",
+                    Trailer = "https://www.youtube.com/watch?v=SPHfeNgogVs",
                     Price = 130,
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     Producer_Id = 2,
